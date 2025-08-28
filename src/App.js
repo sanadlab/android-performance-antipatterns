@@ -15,7 +15,7 @@ function App() {
     const loadData = async () => {
       try {
         setLoading(true);
-        const data = await fetchCsvData('/android-performance-issues/data/performance_issues_list.csv');
+        const data = await fetchCsvData('/android-performance-issues/data/performance_issues_list_v2.csv');
         setIssues(data);
         setLoading(false);
       } catch (err) {

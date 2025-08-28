@@ -18,7 +18,8 @@ const Home = ({ issues }) => {
   // Create a list of all tools that can detect issues
   const detectionTools = [
     'Chimera', 'Adoctor', 'DAAP', 'Lint', 'PMD', 
-    'Ecoandroid', 'Leafactor', 'Paprika', 'Droidlens', 'xAL'
+    'Ecoandroid', 'Leafactor', 'Paprika', 'Droidlens', 'xAL', 'Spotbugs',
+    'Spotbugs-fbinfer', 'Infer', 'Detekt'
   ];
 
   // Apply filters whenever they change
