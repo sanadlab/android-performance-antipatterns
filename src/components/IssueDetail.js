@@ -4,6 +4,7 @@ import { fetchCodeExample } from '../utils/csvLoader';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './IssueDetail.css';
+import { DETECTION_TOOLS } from '../utils/constants';
 
 const IssueDetail = ({ issues }) => {
   const { issueId } = useParams();
@@ -61,10 +62,7 @@ const IssueDetail = ({ issues }) => {
   }
 
   // Get list of tools that can detect this issue
-  const detectionTools = [
-    'Chimera', 'Adoctor', 'DAAP', 'Lint', 'PMD', 
-    'Ecoandroid', 'Leafactor', 'Paprika', 'Droidlens', 'xAL'
-  ].filter(tool => issue[tool] === '✅');
+  const detectionTools = DETECTION_TOOLS.filter(tool => issue[tool] === '✅');
 
   return (
     <div className="issue-detail-container">
@@ -119,6 +117,13 @@ const IssueDetail = ({ issues }) => {
               ) : (
                 <p className="no-content">No detailed explanation available for this issue.</p>
               )}
+             <h2>Void if</h2>
+              {issue["Possible Void"] ? (
+                <p>{issue['Possible Void']}</p>
+              ) : (
+                <p className="no-content">No detailed explanation available for this issue.</p>
+              )}
+              
               {issue.Sample && issue.Sample.startsWith('http') ? (
                 <div className="sample-link">
                   <h3>Learn More</h3>

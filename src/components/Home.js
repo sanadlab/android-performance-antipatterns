@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getUniqueValues } from '../utils/csvLoader';
 import './Home.css';
+import { DETECTION_TOOLS } from '../utils/constants';
 
 const Home = ({ issues }) => {
   const [filteredIssues, setFilteredIssues] = useState([]);
@@ -16,11 +17,7 @@ const Home = ({ issues }) => {
   const categories = getUniqueValues(issues, 'Category');
   
   // Create a list of all tools that can detect issues
-  const detectionTools = [
-    'Chimera', 'Adoctor', 'DAAP', 'Lint', 'PMD', 
-    'Ecoandroid', 'Leafactor', 'Paprika', 'Droidlens', 'xAL', 'Spotbugs',
-    'Spotbugs-fbinfer', 'Infer', 'Detekt'
-  ];
+  const detectionTools = DETECTION_TOOLS;
 
   // Apply filters whenever they change
   useEffect(() => {

@@ -24,7 +24,7 @@ export const fetchCsvData = async (csvFilePath) => {
             // Filter out empty entries and clean up data
             const cleanedRow = {};
             Object.entries(row).forEach(([key, value]) => {
-              if (key && key.trim() !== '' && key !== 'Possible Void') {
+              if (key && key.trim() !== '') {
                 cleanedRow[key] = value;
               }
             });
