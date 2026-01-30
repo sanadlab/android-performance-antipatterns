@@ -2,7 +2,7 @@
   "name": "android-performance-issues",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rrua.github.io/android-performance-issues",
+  "homepage": "https://sanadlab.github.io/android-performance-issues",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
