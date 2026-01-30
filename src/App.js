@@ -15,7 +15,7 @@ function App() {
     const loadData = async () => {
       try {
         setLoading(true);
-        const data = await fetchCsvData('/android-performance-issues/data/performance_issues_list_v3.csv');
+        const data = await fetchCsvData('/android-performance-antipatterns/data/performance_issues_list_v3.csv');
         setIssues(data);
         setLoading(false);
       } catch (err) {
@@ -48,7 +48,7 @@ function App() {
   }
 
   return (
-    <Router basename="/android-performance-issues">
+    <Router basename="/android-performance-antipatterns">
       <div className="app-container">
         <Navigation />
         <div className="content-container">

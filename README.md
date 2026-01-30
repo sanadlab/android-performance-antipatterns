@@ -12,7 +12,7 @@ A comprehensive catalog of statically detectable performance issues in Android a
 ## Project Structure
 
 ```
-android-performance-issues/
+android-performance-antipatterns/
 ├── public/
 │   ├── data/
 │   │   └── performance_issues_list.csv   # CSV data file with all performance issues
@@ -43,8 +43,8 @@ android-performance-issues/
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/android-performance-issues.git
-   cd android-performance-issues
+   git clone https://github.com/yourusername/android-performance-antipatterns.git
+   cd android-performance-antipatterns
    ```
 
 2. Install dependencies:
