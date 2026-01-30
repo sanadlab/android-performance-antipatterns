@@ -12,7 +12,7 @@ const Navigation = () => {
         
         <div className="nav-links">
           <a 
-            href="https://github.com/rrua/android-performance-antipatterns" 
+            href="https://github.com/sanadlab/android-performance-antipatterns" 
             target="_blank" 
             rel="noopener noreferrer"
             className="github-link"
