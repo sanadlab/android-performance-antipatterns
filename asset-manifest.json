@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/android-performance-issues/static/css/main.e577541a.css",
-    "main.js": "/android-performance-issues/static/js/main.701ad8e6.js",
-    "index.html": "/android-performance-issues/index.html",
-    "main.e577541a.css.map": "/android-performance-issues/static/css/main.e577541a.css.map",
-    "main.701ad8e6.js.map": "/android-performance-issues/static/js/main.701ad8e6.js.map"
+    "main.css": "/android-performance-antipatterns/static/css/main.e577541a.css",
+    "main.js": "/android-performance-antipatterns/static/js/main.701ad8e6.js",
+    "index.html": "/android-performance-antipatterns/index.html",
+    "main.e577541a.css.map": "/android-performance-antipatterns/static/css/main.e577541a.css.map",
+    "main.701ad8e6.js.map": "/android-performance-antipatterns/static/js/main.701ad8e6.js.map"
   },
   "entrypoints": [
     "static/css/main.e577541a.css",
