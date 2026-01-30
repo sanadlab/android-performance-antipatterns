@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/android-performance-antipatterns/static/css/main.e577541a.css",
-    "main.js": "/android-performance-antipatterns/static/js/main.701ad8e6.js",
+    "main.js": "/android-performance-antipatterns/static/js/main.c0b47172.js",
     "index.html": "/android-performance-antipatterns/index.html",
     "main.e577541a.css.map": "/android-performance-antipatterns/static/css/main.e577541a.css.map",
-    "main.701ad8e6.js.map": "/android-performance-antipatterns/static/js/main.701ad8e6.js.map"
+    "main.c0b47172.js.map": "/android-performance-antipatterns/static/js/main.c0b47172.js.map"
   },
   "entrypoints": [
     "static/css/main.e577541a.css",
-    "static/js/main.701ad8e6.js"
+    "static/js/main.c0b47172.js"
   ]
 }
