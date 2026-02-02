@@ -72,7 +72,12 @@ const IssueDetail = ({ issues }) => {
         </Link>
         <h1>{issue.Issue}</h1>
         <div className="issue-badges">
-          <span className="category-badge">{issue.Category}</span>
+          {issue.Category && (
+            <span className="category-badge">{issue.Category}</span>
+          )}
+          {issue['Side-Effect'] && (
+            <span className="side-effect-badge">{issue['Side-Effect']}</span>
+          )}
           {issue['Android-Specific'] === 'Yes' && (
             <span className="android-badge">Android-Specific</span>
           )}

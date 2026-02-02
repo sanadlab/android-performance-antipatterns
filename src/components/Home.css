@@ -170,7 +170,16 @@
     font-size: 12px;
     font-weight: 500;
   }
-  
+
+  .side-effect {
+    background-color: #fef6e0;
+    color: #f9ab00;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
   .android-specific {
     background-color: #e6f4ea;
     color: var(--secondary-color);

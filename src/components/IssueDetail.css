@@ -34,18 +34,23 @@
     gap: 10px;
   }
   
-  .category-badge, .android-badge, .severity-badge {
+  .category-badge, .android-badge, .severity-badge, .side-effect-badge {
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
   }
-  
+
   .category-badge {
     background-color: #e8f0fe;
     color: var(--primary-color);
   }
-  
+
+  .side-effect-badge {
+    background-color: #fce8e6;
+    color: #d93025;
+  }
+
   .android-badge {
     background-color: #e6f4ea;
     color: var(--secondary-color);

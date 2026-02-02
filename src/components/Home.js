@@ -2,19 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getUniqueValues } from '../utils/csvLoader';
 import './Home.css';
-import { DETECTION_TOOLS } from '../utils/constants';
+import { DETECTION_TOOLS, ISSUE_CATEGORIES } from '../utils/constants';
 
 const Home = ({ issues }) => {
   const [filteredIssues, setFilteredIssues] = useState([]);
   const [filters, setFilters] = useState({
     searchTerm: '',
     category: '',
+    sideEffect: '',
     androidSpecific: '',
     detectionTools: []
   });
 
-  // Get unique values for filter dropdowns
-  const categories = getUniqueValues(issues, 'Category');
+  // Get unique values for filter dropdowns (fallback to constants if needed)
+  const categories = ISSUE_CATEGORIES;
+  const sideEffects = getUniqueValues(issues, 'Side-Effect').filter(Boolean);
   
   // Create a list of all tools that can detect issues
   const detectionTools = DETECTION_TOOLS;
@@ -32,11 +34,19 @@ const Home = ({ issues }) => {
       );
     }
     
-    // Apply category filter
+    // Apply category filter (categories can be comma-separated)
     if (filters.category) {
-      result = result.filter(issue => issue.Category === filters.category);
+      result = result.filter(issue => {
+        const issueCategories = issue.Category ? issue.Category.split(', ') : [];
+        return issueCategories.includes(filters.category);
+      });
     }
-    
+
+    // Apply side-effect filter
+    if (filters.sideEffect) {
+      result = result.filter(issue => issue['Side-Effect'] === filters.sideEffect);
+    }
+
     // Apply Android-specific filter
     if (filters.androidSpecific) {
       const isAndroidSpecific = filters.androidSpecific === 'Yes';
@@ -61,6 +71,10 @@ const Home = ({ issues }) => {
     setFilters({ ...filters, category: e.target.value });
   };
 
+  const handleSideEffectChange = (e) => {
+    setFilters({ ...filters, sideEffect: e.target.value });
+  };
+
   const handleAndroidSpecificChange = (e) => {
     setFilters({ ...filters, androidSpecific: e.target.value });
   };
@@ -77,6 +91,7 @@ const Home = ({ issues }) => {
     setFilters({
       searchTerm: '',
       category: '',
+      sideEffect: '',
       androidSpecific: '',
       detectionTools: []
     });
@@ -106,6 +121,16 @@ const Home = ({ issues }) => {
               <option value="">All Categories</option>
               {categories.map((category, index) => (
                 <option key={index} value={category}>{category}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="filter-group">
+            <label>Side-Effect:</label>
+            <select value={filters.sideEffect} onChange={handleSideEffectChange}>
+              <option value="">All Side-Effects</option>
+              {sideEffects.map((sideEffect, index) => (
+                <option key={index} value={sideEffect}>{sideEffect}</option>
               ))}
             </select>
           </div>
@@ -151,7 +176,12 @@ const Home = ({ issues }) => {
             <Link to={`/issue/${encodeURIComponent(issue.Issue)}`} key={index} className="issue-card">
               <h3>{issue.Issue}</h3>
               <div className="issue-meta">
-                <span className="category">{issue.Category}</span>
+                {issue.Category && (
+                  <span className="category">{issue.Category}</span>
+                )}
+                {issue['Side-Effect'] && (
+                  <span className="side-effect">{issue['Side-Effect']}</span>
+                )}
                 {issue['Android-Specific'] === 'Yes' && (
                   <span className="android-specific">Android-Specific</span>
                 )}
