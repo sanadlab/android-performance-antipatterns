@@ -2,6 +2,18 @@
 
 Each catalog version is one state of `public/data/`. Use the git tag of a version to get its data.
 
+## 6.0.0 (2026-11-26)
+
+The classification of all the anti-patterns now follows `docs/CODEBOOK.md`. This version does not agree with the taxonomy in the publications (11 categories, 3 side-effects). Use version 4 or 5.0.0 to reproduce their results.
+
+- `Category`: 115 rows changed. New category `UI Rendering`. The first value is the primary category, and the second value (if there is one) is the secondary category.
+- `Side-Effect`: 30 rows changed. New values `App Size` and `Build Time`. A row can have two values.
+- `Android-Specific`: 22 rows changed. No row has an empty value.
+- `docs/proposed_classifications.csv` has the value of each row before and after, with the rationale.
+- One rater made this classification. The validation with two raters (codebook, section 8) is not done.
+- 9 rows are possibly out of scope (see the notes in `docs/proposed_classifications.csv`). They stay in the catalog.
+- Website: the category and side-effect filters have the new values.
+
 ## 5.0.0 (2026-11-26)
 
 Data:

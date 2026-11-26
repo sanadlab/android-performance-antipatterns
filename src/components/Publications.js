@@ -42,7 +42,7 @@ const CATALOG_BIBTEX = `@misc{PAPsCatalog,
   author       = {Rua, Rui},
   title        = {{PAPs} Catalog: A Catalog of {Android} Performance Anti-Patterns},
   year         = {2026},
-  version      = {5.0.0},
+  version      = {6.0.0},
   howpublished = {\\url{https://sanadlab.org/android-performance-antipatterns/}}
 }`;
 

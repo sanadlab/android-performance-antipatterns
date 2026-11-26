@@ -19,7 +19,7 @@ For each anti-pattern, the catalog gives:
 | `public/data/performance_issues_list.csv` | The catalog. One row for each anti-pattern. The separator is `;`. |
 | `public/data/examples/` | The code examples. `<Name>1.txt` and `<Name>2.txt` are the examples that the website shows. `<Name>_annotated_1.txt` and `<Name>_annotated_2.txt` are the same examples with comments. |
 | `docs/CODEBOOK.md` | The rules to classify an anti-pattern. It also describes each column of the catalog. |
-| `docs/proposed_classifications.csv` | The record of the reclassification in version 5.0.0: the value of each row before and after, with the rationale. |
+| `docs/proposed_classifications.csv` | The record of the reclassification in version 6.0.0: the value of each row before and after, with the rationale. |
 | `CHANGELOG.md` | The changes between catalog versions. |
 
 In an example file, the line `-----` separates the inefficient code from the fixed code.
@@ -33,7 +33,7 @@ Cite the catalog with its version (see `CITATION.cff`), and the paper that intro
   author       = {Rua, Rui},
   title        = {{PAPs} Catalog: A Catalog of {Android} Performance Anti-Patterns},
   year         = {2026},
-  version      = {5.0.0},
+  version      = {6.0.0},
   howpublished = {\url{https://sanadlab.org/android-performance-antipatterns/}}
 }
 

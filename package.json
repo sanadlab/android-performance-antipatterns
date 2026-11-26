@@ -1,6 +1,6 @@
 {
   "name": "android-performance-antipatterns",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "private": true,
   "homepage": "https://sanadlab.github.io/android-performance-antipatterns",
   "dependencies": {

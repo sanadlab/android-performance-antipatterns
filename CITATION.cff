@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this catalog, please cite the catalog and the paper below."
 type: dataset
 title: "PAPs Catalog: A Catalog of Android Performance Anti-Patterns"
-version: 5.0.0
+version: 6.0.0
 date-released: 2026-11-26
 authors:
   - family-names: Rua
