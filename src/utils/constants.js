@@ -8,6 +8,7 @@ const DETECTION_TOOLS = [
 const ISSUE_CATEGORIES = [
     'Suboptimal Algorithm',
     'Resource Management',
+    'UI Rendering',
     'API Misuse',
     'Concurrency',
     'Code Smell',
@@ -22,7 +23,12 @@ const ISSUE_CATEGORIES = [
 const SIDE_EFFECTS = [
     'Runtime',
     'Memory',
-    'Energy'
+    'Energy',
+    'App Size',
+    'Build Time'
   ];
 
-export { DETECTION_TOOLS, ISSUE_CATEGORIES, SIDE_EFFECTS };
+// A tool cell can hold a note after the mark (for example '✅?').
+const isDetectedBy = (issue, tool) => (issue[tool] || '').startsWith('✅');
+
+export { DETECTION_TOOLS, ISSUE_CATEGORIES, SIDE_EFFECTS, isDetectedBy };

@@ -23,6 +23,7 @@ const Navigation = () => {
             GitHub
           </a>
           <Link to="/" className="nav-link">Issues List</Link>
+          <Link to="/publications" className="nav-link">Publications</Link>
         </div>
       </div>
     </nav>

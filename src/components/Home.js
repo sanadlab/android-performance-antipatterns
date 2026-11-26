@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getUniqueValues } from '../utils/csvLoader';
 import './Home.css';
-import { DETECTION_TOOLS, ISSUE_CATEGORIES } from '../utils/constants';
+import { DETECTION_TOOLS, ISSUE_CATEGORIES, SIDE_EFFECTS, isDetectedBy } from '../utils/constants';
 
 const Home = ({ issues }) => {
   const [filteredIssues, setFilteredIssues] = useState([]);
@@ -16,7 +15,7 @@ const Home = ({ issues }) => {
 
   // Get unique values for filter dropdowns (fallback to constants if needed)
   const categories = ISSUE_CATEGORIES;
-  const sideEffects = getUniqueValues(issues, 'Side-Effect').filter(Boolean);
+  const sideEffects = SIDE_EFFECTS;
   
   // Create a list of all tools that can detect issues
   const detectionTools = DETECTION_TOOLS;
@@ -42,9 +41,9 @@ const Home = ({ issues }) => {
       });
     }
 
-    // Apply side-effect filter
+    // Apply side-effect filter (side-effects can be comma-separated)
     if (filters.sideEffect) {
-      result = result.filter(issue => issue['Side-Effect'] === filters.sideEffect);
+      result = result.filter(issue => (issue['Side-Effect'] || '').split(', ').includes(filters.sideEffect));
     }
 
     // Apply Android-specific filter
@@ -56,7 +55,7 @@ const Home = ({ issues }) => {
     // Apply tool filters
     if (filters.detectionTools.length > 0) {
       result = result.filter(issue => 
-        filters.detectionTools.some(tool => issue[tool] === '✅')
+        filters.detectionTools.some(tool => isDetectedBy(issue, tool))
       );
     }
     
@@ -194,7 +193,7 @@ const Home = ({ issues }) => {
               <div className="detection-tools">
                 <span className="tool-label">Detected by:</span>
                 <div className="tools-list">
-                  {detectionTools.filter(tool => issue[tool] === '✅').map(tool => (
+                  {detectionTools.filter(tool => isDetectedBy(issue, tool)).map(tool => (
                     <span key={tool} className="tool-tag">{tool}</span>
                   ))}
                 </div>

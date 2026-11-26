@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import IssueDetail from './components/IssueDetail';
 import Navigation from './components/Navigation';
+import Publications from './components/Publications';
 import { fetchCsvData } from './utils/csvLoader';
 import './App.css';
 
@@ -15,7 +16,7 @@ function App() {
     const loadData = async () => {
       try {
         setLoading(true);
-        const data = await fetchCsvData('/android-performance-antipatterns/data/performance_issues_list_v4.csv');
+        const data = await fetchCsvData('/android-performance-antipatterns/data/performance_issues_list.csv');
         setIssues(data);
         setLoading(false);
       } catch (err) {
@@ -48,13 +49,14 @@ function App() {
   }
 
   return (
-    <Router basename="/android-performance-antipatterns">
+    <Router>
       <div className="app-container">
         <Navigation />
         <div className="content-container">
           <Routes>
             <Route path="/" element={<Home issues={issues} />} />
             <Route path="/issue/:issueId" element={<IssueDetail issues={issues} />} />
+            <Route path="/publications" element={<Publications />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

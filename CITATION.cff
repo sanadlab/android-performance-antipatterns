@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this catalog, please cite the catalog and the paper below."
+type: dataset
+title: "PAPs Catalog: A Catalog of Android Performance Anti-Patterns"
+version: 5.0.0
+date-released: 2026-11-26
+authors:
+  - family-names: Rua
+    given-names: Rui
+url: "https://sanadlab.org/android-performance-antipatterns/"
+repository-code: "https://github.com/sanadlab/android-performance-antipatterns"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Towards LLMinating Performance Anti-Patterns in Android Apps"
+  authors:
+    - family-names: Rua
+      given-names: Rui
+    - family-names: Ali
+      given-names: Karim
+  collection-title: "2026 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)"
+  year: 2026
+  start: 17
+  end: 24
+  doi: "10.1109/ICSTW72326.2026.00016"

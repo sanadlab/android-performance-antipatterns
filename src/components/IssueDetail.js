@@ -4,7 +4,7 @@ import { fetchCodeExample } from '../utils/csvLoader';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './IssueDetail.css';
-import { DETECTION_TOOLS } from '../utils/constants';
+import { DETECTION_TOOLS, isDetectedBy } from '../utils/constants';
 
 const IssueDetail = ({ issues }) => {
   const { issueId } = useParams();
@@ -62,7 +62,7 @@ const IssueDetail = ({ issues }) => {
   }
 
   // Get list of tools that can detect this issue
-  const detectionTools = DETECTION_TOOLS.filter(tool => issue[tool] === '✅');
+  const detectionTools = DETECTION_TOOLS.filter(tool => isDetectedBy(issue, tool));
 
   return (
     <div className="issue-detail-container">
@@ -129,6 +129,13 @@ const IssueDetail = ({ issues }) => {
                 <p className="no-content">No detailed explanation available for this issue.</p>
               )}
               
+              {issue['Plausible Occurance Scenario'] && (
+                <>
+                  <h2>Plausible Occurrence Scenario</h2>
+                  <p>{issue['Plausible Occurance Scenario']}</p>
+                </>
+              )}
+
               {issue.Sample && issue.Sample.startsWith('http') ? (
                 <div className="sample-link">
                   <h3>Learn More</h3>
@@ -204,7 +211,7 @@ const IssueDetail = ({ issues }) => {
                   <p>This performance issue can be detected by the following tools:</p>
                   <ul>
                     {detectionTools.map(tool => (
-                      <li key={tool}>{tool}</li>
+                      <li key={tool}>{tool}{issue[tool].slice(1).trim() && ` (note: ${issue[tool].slice(1).trim()})`}</li>
                     ))}
                   </ul>
                 </div>
